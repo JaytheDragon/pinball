@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcx2b24m25ddo"]
+
+[ext_resource type="Texture2D" uid="uid://bajke0ldswmt" path="res://img/ball.png" id="1_gyxbw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+
+[node name="Ball" type="Sprite2D" parent="RigidBody2D/CollisionShape2D"]
+position = Vector2(849, 349)
+texture = ExtResource("1_gyxbw")

@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3vdke8lf273b"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_cj3nm"]
+[ext_resource type="Script" path="res://ball.gd" id="2_fodm5"]
+[ext_resource type="Texture2D" uid="uid://c66gus6y7upd6" path="res://Textures/ball.png" id="3_skyvm"]
+[ext_resource type="Script" path="res://left_flipper.gd" id="4_onm4o"]
+[ext_resource type="Texture2D" uid="uid://xslbpi6buagq" path="res://Textures/flipperL.png" id="5_l8rs7"]
+[ext_resource type="Script" path="res://right_flipper.gd" id="6_p3ewe"]
+[ext_resource type="Texture2D" uid="uid://dk4w1u23w32f0" path="res://Textures/flipper.png" id="7_p3t0a"]
+[ext_resource type="Script" path="res://bumper.gd" id="8_n80k0"]
+[ext_resource type="Texture2D" uid="uid://ciup7jwewsd0c" path="res://Textures/bumper.png" id="9_gi7e0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hyyv8"]
+friction = 0.2
+bounce = 0.6
+absorbent = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m7rv0"]
+radius = 72.4017
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_cj3nm")
+
+[node name="Ball" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_hyyv8")
+gravity_scale = 0.6
+contact_monitor = true
+max_contacts_reported = 5
+linear_damp = 2.0
+angular_damp = 2.0
+script = ExtResource("2_fodm5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+position = Vector2(579, 394)
+scale = Vector2(0.117, 0.105)
+texture = ExtResource("3_skyvm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ball"]
+position = Vector2(3, 2)
+polygon = PackedVector2Array(581, 417, 600, 408, 603, 390, 596, 373, 579, 368, 552, 376, 554, 390, 557, 409, 568, 415)
+
+[node name="LeftFlipper" type="CharacterBody2D" parent="."]
+script = ExtResource("4_onm4o")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftFlipper"]
+position = Vector2(233, 647)
+rotation = 2.54644
+scale = Vector2(1.53321, 1.75223)
+texture = ExtResource("5_l8rs7")
+offset = Vector2(-86.9147, -224.802)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftFlipper"]
+position = Vector2(115, -724)
+scale = Vector2(2.45614, 1.96927)
+polygon = PackedVector2Array(47.2286, 697.211, 57.8143, 688.579, 67.9929, 678.424, 87.1286, 682.994, 98.1214, 688.58, 109.521, 689.088, 124.586, 703.814, 138.836, 719.048, 151.05, 731.743, 169.779, 749.009, 200.721, 775.921, 241.843, 807.914, 265.457, 827.208, 317.164, 872.403, 359.507, 911.505, 334.671, 942.481, 293.957, 966.346, 243.471, 940.448, 178.736, 897.285, 124.179, 852.091, 73.2857, 796.233, 66.3643, 751.546, 65, 738, 58.6286, 718.031)
+
+[node name="Hinge" type="Node2D" parent="LeftFlipper"]
+
+[node name="RightFlipper" type="CharacterBody2D" parent="."]
+position = Vector2(328, 768)
+script = ExtResource("6_p3ewe")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightFlipper"]
+position = Vector2(1555, -321)
+rotation = -2.54644
+scale = Vector2(1.533, 1.752)
+texture = ExtResource("7_p3t0a")
+offset = Vector2(81.4077, -219.015)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightFlipper"]
+position = Vector2(1191, 224)
+scale = Vector2(0.559196, 0.492647)
+polygon = PackedVector2Array(757, 587, 711, 609, 810.092, 602.865, 652, 635, 593, 676, 530, 727, 568, 757, 598, 749, 671, 717, 743, 658)
+
+[node name="Hinge" type="Node2D" parent="RightFlipper"]
+
+[node name="Bumper" type="StaticBody2D" parent="." groups=["bumper"]]
+script = ExtResource("8_n80k0")
+
+[node name="Bumper" type="Sprite2D" parent="Bumper"]
+position = Vector2(598, 563)
+scale = Vector2(0.298, 0.256)
+texture = ExtResource("9_gi7e0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bumper"]
+position = Vector2(604, 558)
+shape = SubResource("CircleShape2D_m7rv0")
+
+[node name="Tween" type="Node2D" parent="Bumper"]

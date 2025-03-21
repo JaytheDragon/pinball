@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuntroeklwgjc"]
+
+[ext_resource type="Script" path="res://rules_3.gd" id="1_00vay"]
+[ext_resource type="Texture2D" uid="uid://drrpkkcl8aydp" path="res://img/rules3.png" id="1_mt55g"]
+
+[node name="Rules3" type="Node2D"]
+script = ExtResource("1_00vay")
+
+[node name="Rules3" type="Sprite2D" parent="."]
+position = Vector2(1478, 682)
+scale = Vector2(2.66111, 2.66111)
+texture = ExtResource("1_mt55g")
+
+[node name="Back" type="Button" parent="."]
+offset_left = 855.0
+offset_top = 1186.0
+offset_right = 1094.0
+offset_bottom = 1331.0
+theme_override_font_sizes/font_size = 100
+text = "Back"
+
+[node name="StartGame" type="Button" parent="."]
+offset_left = 1631.0
+offset_top = 1192.0
+offset_right = 1870.0
+offset_bottom = 1337.0
+theme_override_font_sizes/font_size = 100
+text = "Start"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]

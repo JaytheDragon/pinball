@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://4ngy6oc22qot"]
+
+[ext_resource type="Texture2D" uid="uid://y3fdvq3pe422" path="res://Textures/HomeScreen.png" id="1_aydhr"]
+[ext_resource type="Script" path="res://start.gd" id="1_tucr8"]
+
+[node name="Node2D2" type="Node2D"]
+script = ExtResource("1_tucr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1633.73, 942)
+scale = Vector2(4.20403, 2.5)
+texture = ExtResource("1_aydhr")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 421.0
+offset_top = 14.0
+offset_right = 580.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 30
+
+[node name="StartGame" type="Button" parent="."]
+offset_left = 1433.0
+offset_top = 737.0
+offset_right = 1997.0
+offset_bottom = 882.0
+theme_override_font_sizes/font_size = 100
+text = "Start Game"
+
+[node name="RulesButton" type="Button" parent="."]
+offset_left = 1572.0
+offset_top = 1050.0
+offset_right = 1842.0
+offset_bottom = 1195.0
+theme_override_font_sizes/font_size = 100
+text = "Rules"
+
+[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="RulesButton" to="." method="_on_rules_button_pressed"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c52gc63ky2y1a"]
+
+[ext_resource type="Texture2D" uid="uid://jimnibkw7yyq" path="res://Textures/level_one_clear_screen.png" id="1_8ymco"]
+[ext_resource type="Script" path="res://level_one_clear.gd" id="1_saur1"]
+
+[node name="level_one_clear" type="Node2D"]
+script = ExtResource("1_saur1")
+
+[node name="LevelOneClearScreen" type="Sprite2D" parent="."]
+position = Vector2(1766, 793)
+scale = Vector2(4.41, 3)
+texture = ExtResource("1_8ymco")
+
+[node name="NextStage" type="Button" parent="."]
+offset_left = 431.0
+offset_top = 142.0
+offset_right = 2048.0
+offset_bottom = 470.0
+theme_override_font_sizes/font_size = 100
+text = "Click here to go to the next stage!"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="NextStage" to="." method="_on_next_stage_pressed"]

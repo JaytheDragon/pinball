@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cltc83mhc78r6"]
+
+[ext_resource type="Script" path="res://rules_2.gd" id="1_nhqnc"]
+[ext_resource type="Texture2D" uid="uid://b67ou7ewfi2hj" path="res://img/rules2.png" id="2_ddojr"]
+
+[node name="Rules2" type="Node2D"]
+script = ExtResource("1_nhqnc")
+
+[node name="Rules2" type="Sprite2D" parent="."]
+position = Vector2(1500.33, 717)
+scale = Vector2(2.73704, 2.73704)
+texture = ExtResource("2_ddojr")
+
+[node name="Back" type="Button" parent="."]
+offset_left = 855.0
+offset_top = 1186.0
+offset_right = 1094.0
+offset_bottom = 1331.0
+theme_override_font_sizes/font_size = 100
+text = "Back"
+
+[node name="Next" type="Button" parent="."]
+offset_left = 1631.0
+offset_top = 1192.0
+offset_right = 1870.0
+offset_bottom = 1337.0
+theme_override_font_sizes/font_size = 100
+text = "Next"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
